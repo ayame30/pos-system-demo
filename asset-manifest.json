@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://ayame30.github.io/pos-system-demo/static/css/main.ef161a93.css",
-    "main.js": "https://ayame30.github.io/pos-system-demo/static/js/main.6944ab2c.js",
-    "static/js/488.ea624d26.chunk.js": "https://ayame30.github.io/pos-system-demo/static/js/488.ea624d26.chunk.js",
-    "index.html": "https://ayame30.github.io/pos-system-demo/index.html",
-    "main.ef161a93.css.map": "https://ayame30.github.io/pos-system-demo/static/css/main.ef161a93.css.map",
-    "main.6944ab2c.js.map": "https://ayame30.github.io/pos-system-demo/static/js/main.6944ab2c.js.map",
-    "488.ea624d26.chunk.js.map": "https://ayame30.github.io/pos-system-demo/static/js/488.ea624d26.chunk.js.map"
+    "main.css": "/static/css/main.47937f79.css",
+    "main.js": "/static/js/main.b803a809.js",
+    "static/js/488.ea624d26.chunk.js": "/static/js/488.ea624d26.chunk.js",
+    "index.html": "/index.html",
+    "main.47937f79.css.map": "/static/css/main.47937f79.css.map",
+    "main.b803a809.js.map": "/static/js/main.b803a809.js.map",
+    "488.ea624d26.chunk.js.map": "/static/js/488.ea624d26.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef161a93.css",
-    "static/js/main.6944ab2c.js"
+    "static/css/main.47937f79.css",
+    "static/js/main.b803a809.js"
   ]
 }
