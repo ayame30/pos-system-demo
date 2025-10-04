@@ -116,61 +116,9 @@ const MainPage = () => {
     setShowEmailPopup(false);
   };
 
-  const handleSubmit = async ({email, paymentMethod, remarks}) => {
-    setInvoiceEmail(email);
-    if (itemCount === 0) {
-      throw new Error("Please add items to cart before submitting.");
-    }
-    if (!paymentMethod) {
-      throw new Error("Please select payment method.");
-    }
-
-    // Prepare form data
-    const formData = new FormData();
-    
-    // Add staff name from Redux store
-    if (staffNameEntryId) {
-      formData.append(`entry.${staffNameEntryId}`, staffName || 'Unknown');
-    }
-    if (totalAmountEntryId) {
-      formData.append(`entry.${totalAmountEntryId}`, total.toFixed(2));
-    }
-    if (itemCountEntryId) {
-      formData.append(`entry.${itemCountEntryId}`, itemCount);
-    }
-    if (invoiceEmailEntryId) {
-      formData.append(`entry.${invoiceEmailEntryId}`, email);
-    }
-    if (paymentMethodEntryId) {
-      formData.append(`entry.${paymentMethodEntryId}`, paymentMethod);
-    }
-    if (remarksEntryId) {
-      formData.append(`entry.${remarksEntryId}`, remarks);
-
-    }
-    Object.entries(cart).forEach(([itemId, quantity]) => {
-      if (quantity > 0) {
-        const item = items.find(item => item.id === itemId);
-        if (item) {
-          formData.append(`entry.${item.id}`, quantity);
-          if (itemsEntryId) {
-            formData.append(`entry.${itemsEntryId}`, `${item.name} x${quantity} - $${(item.price * quantity).toFixed(2)}`);
-          }
-        }
-      }
-    });
-
-    // Replace this URL with your actual Google Form URL
-    const GOOGLE_FORM_URL = formSubmitUrl;
-
-    // Submit the form data to Google Form
-    await fetch(GOOGLE_FORM_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData,
-    });
-    console.log("Submitted");
+  const onClearContents = async ({email, paymentMethod, remarks}) => {
     // Reset cart
+    setShowCheckoutPopUp(false);
     setCart({});
     setInvoiceEmail('');
     return true;
@@ -279,7 +227,7 @@ const MainPage = () => {
             quantity: cart[item.id]
           }))
         }
-        onConfirm={handleSubmit}
+        onClearContents={onClearContents}
         invoiceEmail={invoiceEmail}
         onInvoiceEmailChange={setInvoiceEmail}
       />
